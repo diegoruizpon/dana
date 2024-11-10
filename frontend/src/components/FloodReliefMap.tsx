@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Package, Wrench } from 'lucide-react';
 import { Map } from './Map';
 import { MapWrapper } from './MapWrapper';
+import type { Task } from '../types';  // Add this import
+
 
 const FloodReliefMap = () => {
   const [activeTab, setActiveTab] = useState('tasks');
-  // Replace the existing tasks state with this:
-  const [tasks] = useState([
+  const [tasks] = useState<Task[]>([ 
     { 
       id: 1, 
       type: 'task', 

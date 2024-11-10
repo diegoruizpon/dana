@@ -1,6 +1,8 @@
+import * as React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import type { Task } from '../types'
+import type { Task } from '../types/index'
+
 
 interface MapProps {
   tasks: Task[];

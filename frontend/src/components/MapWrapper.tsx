@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import L from 'leaflet'
+import * as React from 'react'
+import * as L from 'leaflet'
 import { Map } from './Map'
 import type { Task } from '../types'
 
