@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import * as React from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Package, Wrench } from 'lucide-react';
+import { Map } from './Map';
+import { MapWrapper } from './MapWrapper';
+import type { Task } from '../types';  // Add this import
+
 
 const FloodReliefMap = () => {
   const [activeTab, setActiveTab] = useState('tasks');
-  const [tasks] = useState([
+  const [tasks] = useState<Task[]>([ 
     { 
       id: 1, 
       type: 'task', 
       title: 'Muro de contención necesario', 
-      location: 'Ribera Norte', 
+      location: 'Ribera Norte',
+      latitude: 39.4789,
+      longitude: -0.3676, 
       urgency: 'high', 
       volunteers: 5 
     },
@@ -18,7 +25,9 @@ const FloodReliefMap = () => {
       id: 2, 
       type: 'supplies', 
       title: 'Se necesitan suministros médicos', 
-      location: 'Hospital Central', 
+      location: 'Hospital Central',
+      latitude: 39.4623,
+      longitude: -0.3723, 
       urgency: 'medium', 
       items: ['vendas', 'antibióticos'] 
     },
@@ -26,11 +35,15 @@ const FloodReliefMap = () => {
       id: 3, 
       type: 'equipment', 
       title: 'Se requieren bombas de agua', 
-      location: 'Distrito Este', 
+      location: 'Distrito Este',
+      latitude: 39.4699,
+      longitude: -0.3563, 
       urgency: 'high', 
       items: ['bombas', 'generadores'] 
     }
   ]);
+
+
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
@@ -55,8 +68,8 @@ const FloodReliefMap = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="w-full h-64 bg-slate-100 rounded-lg mb-4 flex items-center justify-center">
-            <span className="text-slate-500">Aquí se mostrará el mapa</span>
+          <div className="w-full h-[500px] bg-slate-100 rounded-lg mb-4">
+            <MapWrapper tasks={tasks} />
           </div>
           
           <div className="space-y-4">

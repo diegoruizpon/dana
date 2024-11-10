@@ -40,7 +40,6 @@ Thumbs.db
 .env.*
 !.env.example
 
-
 # Database
 *.db
 *.sqlite
